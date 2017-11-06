@@ -8,7 +8,8 @@ export class BlockInput extends React.Component {
       timeStamp: "",
       data: "",
       previousHash: "",
-      hash: ""
+      hash: "",
+      nonce: ""
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);

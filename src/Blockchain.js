@@ -11,12 +11,14 @@ export class BlockChain extends React.Component {
 
     this.state = {
       blockchain: blockchain,
-      valid: ""
+      valid: "",
+      difficulty: null
     }
 
     this.handleAddBlock = this.handleAddBlock.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClickValidate = this.handleClickValidate.bind(this);
+    this.handleDifficultyChange = this.handleDifficultyChange.bind(this)
   }
 
   handleAddBlock(block) {
@@ -24,6 +26,7 @@ export class BlockChain extends React.Component {
     let timeStamp = new Date().toString();
     let previousHash = this.state.blockchain[this.state.blockchain.length-1].hash;
     let newBlock = new Block(index, timeStamp, block.data, previousHash);
+    newBlock.mineBlock(this.state.difficulty);
     this.setState({blockchain: [...this.state.blockchain, newBlock]});
   }
 
@@ -31,6 +34,7 @@ export class BlockChain extends React.Component {
     e.preventDefault();
     let timeStamp = new Date().toString();
     let genesisBlock = new Block(1, timeStamp, "Genesis block", "0");
+    genesisBlock.mineBlock(this.state.difficulty);
     this.setState({
       blockchain: [...this.state.blockchain, genesisBlock]
     });
@@ -39,6 +43,16 @@ export class BlockChain extends React.Component {
   handleClickValidate(e) {
     e.preventDefault();
     this.isChainValid();
+  }
+
+  handleDifficultyChange(e) {
+    e.preventDefault();
+    let target = e.target;
+    let value = parseInt(target.value);
+    value = isNaN(value) ? null : value;
+    this.setState({
+      difficulty: value
+    })
   }
 
   isChainValid() {
@@ -69,6 +83,13 @@ export class BlockChain extends React.Component {
     return (
       <div className='text-center'>
       <h2>QuickChain</h2>
+      <input name="difficulty"
+             type="text"
+             id="inputBlockDifficulty"
+             value={this.state.difficulty}
+             onChange={this.handleDifficultyChange}
+             placeholder="Set Blockchain Difficulty">
+      </input>
       {this.state.blockchain.length < 1 ?
         <div>
           <form onSubmit={this.handleSubmit}>
@@ -78,7 +99,6 @@ export class BlockChain extends React.Component {
         : null
       }
         {this.state.blockchain.length < 1 ? null : <BlockInput onAddBlock={this.handleAddBlock}/>}
-
         <div className={this.state.blockchain.length < 1 ? "" : 'blockchain'}>
           {this.state.blockchain.map((block, index) =>
             <div className='block' key={index}>
@@ -87,6 +107,7 @@ export class BlockChain extends React.Component {
               <div><p>Data: {block.data}</p></div>
               <div><p>Previous Hash: <i>{block.previousHash}</i></p></div>
               <div><p>Hash: <i>{block.hash}</i></p></div>
+              <div><p>Nonce: <i>{block.nonce}</i></p></div>
             </div>
           )}
         </div>
