@@ -4,6 +4,11 @@
 
 .block{
   margin:25px;
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-color: blue;
+  padding: 10px;
+  margin: 10px;
 }
 .block div{
   margin: 0px;
@@ -24,6 +29,7 @@
     margin: 10px;
 
 }
+
 input {
   text-align: center;
 }

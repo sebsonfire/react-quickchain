@@ -1,8 +1,6 @@
 import React from 'react';
 import Block from './block.js';
 import BlockInput from './BlockInput';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
 
 let blockchain = [];
 
