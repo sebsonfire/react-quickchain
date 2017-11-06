@@ -39,9 +39,8 @@ export class BlockInput extends React.Component {
     <div>
       <form onSubmit = {this.handleSubmit} className="add-block-form">
         <div>
-          <label htmlFor="inputBlockData"> </label>
+          <label htmlFor="inputBlockData">ADD NEW BLOCK</label>
           <div>
-            <h4>Add New Block</h4>
             <input name="data"
                    type="text"
                    id="inputBlockData"

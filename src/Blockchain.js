@@ -70,9 +70,9 @@ export class BlockChain extends React.Component {
   render() {
     return (
       <div className='text-center'>
+      <h2>QuickChain</h2>
       {this.state.blockchain.length < 1 ?
         <div>
-          <h4>Add Genesis Block</h4>
           <form onSubmit={this.handleSubmit}>
             <button type="submit" className="btn btn-success">Create Genesis Block</button>
           </form>
@@ -80,18 +80,18 @@ export class BlockChain extends React.Component {
         : null
       }
         {this.state.blockchain.length < 1 ? null : <BlockInput onAddBlock={this.handleAddBlock}/>}
-        <div className='blockchain'>
+        <div className={this.state.blockchain.length < 1 ? "" : 'blockchain'}>
           {this.state.blockchain.map((block, index) =>
             <div className='block' key={index}>
               <div><p>Block #{block.index}</p></div>
               <div><p>Timestamp: {block.timeStamp}</p></div>
               <div><p>Data: {block.data}</p></div>
-              <div><p>Previous Hash: {block.previousHash}</p></div>
-              <div><p>Hash: {block.hash}</p></div>
+              <div><p>Previous Hash: <i>{block.previousHash}</i></p></div>
+              <div><p>Hash: <i>{block.hash}</i></p></div>
             </div>
           )}
-          {this.state.blockchain.length < 1 ? null : <div><button onClick={this.handleClickValidate} className="btn btn-danger">Check Validity</button><div className="validator">{this.state.valid.toString().toUpperCase()}</div></div>}
         </div>
+        {this.state.blockchain.length < 1 ? null : <div><button onClick={this.handleClickValidate} className="btn btn-danger">Check Validity</button><div className="validator">{this.state.valid.toString().toUpperCase()}</div></div>}
       </div>
     )
   }

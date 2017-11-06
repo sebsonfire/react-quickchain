@@ -3,7 +3,7 @@
 }
 
 .block{
-  margin-bottom:50px;
+  margin:25px;
 }
 .block div{
   margin: 0px;
@@ -14,4 +14,13 @@
 
 .btn:focus {
   outline: none;
+}
+
+.blockchain {
+    outline-style: dotted;
+    outline-width: 2px;
+    outline-color: red;
+    padding: 10px;
+    margin: 10px;
+
 }
