@@ -6,7 +6,11 @@ class App extends Component {
   render() {
     return (
       <div className='container'>
-        <Blockchain />
+        <div className='row'>
+          <div className='col-md-12'>
+            <Blockchain />
+          </div>
+        </div>
       </div>
     );
   }
