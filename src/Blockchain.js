@@ -1,6 +1,7 @@
 import React from 'react';
 import Block from './block.js';
 import BlockInput from './BlockInput';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 let blockchain = [];
@@ -59,7 +60,6 @@ export class BlockChain extends React.Component {
         })
       }
     }
-
     return this.setState({
       valid: true
     })
@@ -80,10 +80,11 @@ export class BlockChain extends React.Component {
         : null
       }
         {this.state.blockchain.length < 1 ? null : <BlockInput onAddBlock={this.handleAddBlock}/>}
+
         <div className={this.state.blockchain.length < 1 ? "" : 'blockchain'}>
           {this.state.blockchain.map((block, index) =>
             <div className='block' key={index}>
-              <div><p>Block #{block.index}</p></div>
+              <div><p><strong>Block #{block.index}</strong></p></div>
               <div><p>Timestamp: {block.timeStamp}</p></div>
               <div><p>Data: {block.data}</p></div>
               <div><p>Previous Hash: <i>{block.previousHash}</i></p></div>

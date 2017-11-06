@@ -24,3 +24,28 @@
     margin: 10px;
 
 }
+input {
+  text-align: center;
+}
+
+.chainanim-enter {
+  opacity: 0.01;
+  width: 0px;
+}
+
+.chainanim-enter.chainanim-enter-active {
+  opacity: 10;
+  width: 100px;
+  transition: 2000ms;
+}
+
+.chiananim-leave {
+  opacity: 1;
+  width: 100px;
+}
+
+.chiananim-leave.chainanim-leave-active {
+  opacity: 0.01;
+  width: 0px;
+  transition: 700ms;
+}
