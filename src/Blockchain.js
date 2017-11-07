@@ -48,7 +48,7 @@ export class BlockChain extends React.Component {
   handleDifficultyChange(e) {
     e.preventDefault();
     let target = e.target;
-    let value = parseInt(target.value);
+    let value = parseInt(target.value, 10);
     value = isNaN(value) ? null : value;
     this.setState({
       difficulty: value
