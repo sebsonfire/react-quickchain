@@ -1,8 +1,13 @@
 import React from 'react';
 import Block from './block.js';
 import BlockInput from './BlockInput';
+import User from './user.js';
+import UserInput from './UserInput';
+
+const cryptico = require('cryptico');
 
 let blockchain = [];
+let users = [];
 
 export class BlockChain extends React.Component {
 
@@ -11,11 +16,13 @@ export class BlockChain extends React.Component {
 
     this.state = {
       blockchain: blockchain,
+      users: users,
       valid: "",
       difficulty: null
     }
 
     this.handleAddBlock = this.handleAddBlock.bind(this);
+    this.handleAddUser = this.handleAddUser.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClickValidate = this.handleClickValidate.bind(this);
     this.handleDifficultyChange = this.handleDifficultyChange.bind(this)
@@ -30,6 +37,16 @@ export class BlockChain extends React.Component {
     console.log(newBlock.hash);
     this.setState({
       blockchain: [...this.state.blockchain, newBlock]});
+  }
+
+  handleAddUser(user) {
+    let passPhrase = user.passPhrase;
+    let bits = 1024;
+    let userRsaKey = cryptico.generateRSAKey(passPhrase, bits);
+    let index = this.state.users.length + 1;
+    let newUser = new User(index, userRsaKey);
+    this.setState({
+      users: [...this.state.users, newUser]});
   }
 
   handleSubmit(e) {
@@ -85,6 +102,16 @@ export class BlockChain extends React.Component {
     return (
       <div className='text-center'>
       <h2>QuickChain</h2>
+      <UserInput onAddUser={this.handleAddUser}/>
+      <div>
+        {this.state.users.map((user, index) =>
+          <div className='user' key={index}>
+            <div><p>User #{user.index}</p></div>
+            <div><p>Public Key: <i>{user.publicKey}</i></p></div>
+
+          </div>
+          )}
+      </div>
       <input name="difficulty"
              type="text"
              id="inputBlockDifficulty"

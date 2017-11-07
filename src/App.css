@@ -17,6 +17,13 @@
   word-wrap: break-word;
 }
 
+.user div{
+  margin: 0px;
+  padding: 0px;
+  display: flex-box;
+  word-wrap: break-word;
+}
+
 .btn:focus {
   outline: none;
 }
