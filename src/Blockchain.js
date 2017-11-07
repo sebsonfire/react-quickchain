@@ -27,13 +27,15 @@ export class BlockChain extends React.Component {
     let previousHash = this.state.blockchain[this.state.blockchain.length-1].hash;
     let newBlock = new Block(index, timeStamp, block.data, previousHash);
     newBlock.mineBlock(this.state.difficulty);
-    this.setState({blockchain: [...this.state.blockchain, newBlock]});
+    console.log(newBlock.hash);
+    this.setState({
+      blockchain: [...this.state.blockchain, newBlock]});
   }
 
   handleSubmit(e) {
     e.preventDefault();
     let timeStamp = new Date().toString();
-    let genesisBlock = new Block(1, timeStamp, "Genesis block", "0");
+    let genesisBlock = new Block(1, timeStamp, "Genesis block", "0","0");
     genesisBlock.mineBlock(this.state.difficulty);
     this.setState({
       blockchain: [...this.state.blockchain, genesisBlock]
