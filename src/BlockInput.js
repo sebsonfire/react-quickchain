@@ -40,7 +40,6 @@ export class BlockInput extends React.Component {
     <div>
       <form onSubmit = {this.handleSubmit} className="add-block-form">
         <div>
-          <label htmlFor="inputBlockData">ADD NEW BLOCK</label>
           <div>
             <input name="data"
                    type="text"
@@ -51,7 +50,7 @@ export class BlockInput extends React.Component {
             </input>
           </div>
           <div>
-            <button type="submit" className="btn btn-success">Add Block</button>
+            <button type="submit" className="btn">Add Block</button>
           </div>
         </div>
       </form>

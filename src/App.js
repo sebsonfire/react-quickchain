@@ -5,10 +5,12 @@ import Blockchain from './Blockchain';
 class App extends Component {
   render() {
     return (
-      <div className='container'>
-        <div className='row'>
-          <div className='col-md-12'>
-            <Blockchain />
+      <div className='wrapper'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12'>
+              <Blockchain />
+            </div>
           </div>
         </div>
       </div>
