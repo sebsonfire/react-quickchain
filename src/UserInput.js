@@ -43,7 +43,7 @@ export class UserInput extends React.Component {
             </input>
           </div>
           <div>
-            <button type="submit" className="btn btn-success">Generate Account</button>
+            <button type="submit" className="btn">Generate Account</button>
           </div>
         </div>
       </form>

@@ -2,13 +2,23 @@
   text-align: center;
 }
 
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("http://www.hyperledger.org/wp-content/uploads/2016/08/hl_bg_banner.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+}
+
 .block{
   margin:25px;
   outline-style: dotted;
   outline-width: 1px;
-  outline-color: blue;
+  outline-color: #0080a7;
   padding: 10px;
   margin: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
 }
 .block div{
   margin: 0px;
@@ -23,43 +33,41 @@
   display: flex-box;
   word-wrap: break-word;
 }
-
+.btn {
+  background: none;
+  border: 2px solid #0080a7;
+  color: white;
+  margin: 5px;
+}
 .btn:focus {
   outline: none;
+  outline-style: none;
+}
+
+.btn:hover {
+  color:white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+}
+
+.btn:active {
+  color:white;
 }
 
 .blockchain {
     outline-style: dotted;
     outline-width: 2px;
-    outline-color: red;
+    outline-color: #b2b2b2;
     padding: 10px;
     margin: 10px;
+}
 
+.difficulty-form {
+  margin-bottom: 5px;
 }
 
 input {
   text-align: center;
   width: 160px;
+  color: black;
 }
 
-.chainanim-enter {
-  opacity: 0.01;
-  width: 0px;
-}
-
-.chainanim-enter.chainanim-enter-active {
-  opacity: 10;
-  width: 100px;
-  transition: 2000ms;
-}
-
-.chiananim-leave {
-  opacity: 1;
-  width: 100px;
-}
-
-.chiananim-leave.chainanim-leave-active {
-  opacity: 0.01;
-  width: 0px;
-  transition: 700ms;
-}

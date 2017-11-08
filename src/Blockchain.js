@@ -112,22 +112,27 @@ export class BlockChain extends React.Component {
           </div>
           )}
       </div>
-      <input name="difficulty"
-             type="text"
-             id="inputBlockDifficulty"
-             value={this.state.difficulty}
-             onChange={this.handleDifficultyChange}
-             placeholder="Set Blockchain Difficulty">
-      </input>
+      <div className='difficulty-form'>
+        <label htmlFor="inputBlockData">Add New Block</label>
+          <div>
+            <input name="difficulty"
+               type="text"
+               id="inputBlockDifficulty"
+               value={this.state.difficulty}
+               onChange={this.handleDifficultyChange}
+               placeholder="Set Blockchain Difficulty">
+            </input>
+          </div>
+      </div>
+        {this.state.blockchain.length < 1 ? null : <BlockInput onAddBlock={this.handleAddBlock}/>}
       {this.state.blockchain.length < 1 ?
         <div>
           <form onSubmit={this.handleSubmit}>
-            <button type="submit" className="btn btn-success">Create Genesis Block</button>
+            <button type="submit" className="btn">Create Genesis Block</button>
           </form>
         </div>
         : null
       }
-        {this.state.blockchain.length < 1 ? null : <BlockInput onAddBlock={this.handleAddBlock}/>}
         <div className={this.state.blockchain.length < 1 ? "" : 'blockchain'}>
           {this.state.blockchain.map((block, index) =>
             <div className='block' key={index}>
@@ -140,7 +145,7 @@ export class BlockChain extends React.Component {
             </div>
           )}
         </div>
-        {this.state.blockchain.length < 1 ? null : <div><button onClick={this.handleClickValidate} className="btn btn-danger">Check Validity</button><div className="validator">{this.state.valid.toString().toUpperCase()}</div></div>}
+        {this.state.blockchain.length < 1 ? null : <div><button onClick={this.handleClickValidate} className="btn">Check Validity</button><div className="validator">{this.state.valid.toString().toUpperCase()}</div></div>}
       </div>
     )
   }
