@@ -58,7 +58,6 @@ body {
 
 .blockchain {
     border: 1px dotted;
-    border-image: linear-gradient(#b2b2b2, #0080a7) 10;
     padding: 10px;
     margin: 10px;
 }
