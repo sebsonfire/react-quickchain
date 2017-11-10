@@ -4,11 +4,17 @@
 
 .container {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .github-link {
   text-align: right;
   margin-top: 25px;
+  padding-right:25px;
+}
+
+.logo {
+  padding-left: 25px;
 }
 
 a { color: inherit; }
