@@ -39,7 +39,7 @@ export class UserInput extends React.Component {
                    id="inputUserPassPhrase"
                    value={this.state.passPhrase}
                    onChange={this.handleInputChange}
-                   placeholder="Enter PassPhrase">
+                   placeholder="Enter Passphrase">
             </input>
           </div>
           <div>

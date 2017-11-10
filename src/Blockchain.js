@@ -101,7 +101,6 @@ export class BlockChain extends React.Component {
   render() {
     return (
       <div className='text-center'>
-      <h2>QuickChain</h2>
       <UserInput onAddUser={this.handleAddUser}/>
       <div>
         {this.state.users.map((user, index) =>
