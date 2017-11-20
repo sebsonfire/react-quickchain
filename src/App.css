@@ -41,14 +41,28 @@ input::placeholder {
   padding-left: 25px;
 }
 
-.user-chain {;
+.user {
+  margin: 10px;
+  border: 1px dotted;
+  border-color: #0080a7;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.user div{
+  margin: 0px;
+  padding: 10px;
+  display: flex-box;
+  word-wrap: break-word;
+}
+
+.user-chain {
+  border: 1px dotted;
   margin: auto;
   margin-bottom:10px;
   max-width: 500px;
 }
 
 .block{
-  margin:25px;
   border: 1px dotted;
   border-color: #0080a7;
   padding: 10px;
@@ -62,16 +76,12 @@ input::placeholder {
   word-wrap: break-word;
 }
 
-.user {
-  margin: 5px;
+.blockchain {
+    border: 1px dotted;
+    padding: 10px;
+    margin: 10px;
 }
 
-.user div{
-  margin: 0px;
-  padding: 5px;
-  display: flex-box;
-  word-wrap: break-word;
-}
 .btn {
   background: none;
   border: 2px solid #0080a7;
@@ -90,12 +100,6 @@ input::placeholder {
 
 .btn:active {
   color:white;
-}
-
-.blockchain {
-    border: 1px dotted;
-    padding: 10px;
-    margin: 10px;
 }
 
 .difficulty-form {

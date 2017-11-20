@@ -103,7 +103,7 @@ export class BlockChain extends React.Component {
     return (
       <div className='text-center'>
         <UserInput onAddUser={this.handleAddUser}/>
-        <div className="user-chain">
+        <div className={this.state.users.length < 1 ? "" : 'user-chain'}>
           {this.state.users.map((user, index) =>
             <div className='user' key={index}>
               <div>User: {user.userName}</div>
