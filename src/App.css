@@ -1,3 +1,27 @@
+a { color: inherit; }
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("http://www.hyperledger.org/wp-content/uploads/2016/08/hl_bg_banner.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+input {
+  text-align: center;
+  width: 160px;
+  background: none;
+}
+
+input::placeholder {
+  color: white;
+  font-weight: 200;
+}
+
 .App {
   text-align: center;
 }
@@ -17,16 +41,10 @@
   padding-left: 25px;
 }
 
-a { color: inherit; }
-
-body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("http://www.hyperledger.org/wp-content/uploads/2016/08/hl_bg_banner.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: white;
-  font-weight: 200;
+.user-chain {;
+  margin: auto;
+  margin-bottom:10px;
+  max-width: 500px;
 }
 
 .block{
@@ -44,9 +62,13 @@ body {
   word-wrap: break-word;
 }
 
+.user {
+  margin: 5px;
+}
+
 .user div{
   margin: 0px;
-  padding: 0px;
+  padding: 5px;
   display: flex-box;
   word-wrap: break-word;
 }
@@ -80,13 +102,6 @@ body {
   margin-bottom: 5px;
 }
 
-input {
-  text-align: center;
-  width: 160px;
-  background: none;
-}
-
-input::placeholder {
-  color: white;
-  font-weight: 200;
+.user-submission-form div{
+  margin: 5px;
 }

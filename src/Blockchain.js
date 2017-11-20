@@ -45,7 +45,7 @@ export class BlockChain extends React.Component {
     let bits = 1024;
     let userRsaKey = cryptico.generateRSAKey(userName + passPhrase, bits);
     let index = this.state.users.length + 1;
-    let newUser = new User(index, userRsaKey);
+    let newUser = new User(userName, passPhrase, index, userRsaKey);
     this.setState({
       users: [...this.state.users, newUser]});
   }
@@ -103,35 +103,35 @@ export class BlockChain extends React.Component {
     return (
       <div className='text-center'>
         <UserInput onAddUser={this.handleAddUser}/>
-      <div>
-        {this.state.users.map((user, index) =>
-          <div className='user' key={index}>
-            <div><p>User #{user.index}</p></div>
-            <div><p>Public Key: <i>{user.publicKey}</i></p></div>
-          </div>
-          )}
-      </div>
-      <div className='difficulty-form'>
-        <label htmlFor="inputBlockData">Add New Block</label>
-          <div>
-            <input name="difficulty"
-                   type="text"
-                   id="inputBlockDifficulty"
-                   value={this.state.difficulty}
-                   onChange={this.handleDifficultyChange}
-                   placeholder="Set Blockchain Difficulty">
-            </input>
-          </div>
-      </div>
-        {this.state.blockchain.length < 1 ? null : <BlockInput onAddBlock={this.handleAddBlock}/>}
-      {this.state.blockchain.length < 1 ?
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <button type="submit" className="btn">Create Genesis Block</button>
-          </form>
+        <div className="user-chain">
+          {this.state.users.map((user, index) =>
+            <div className='user' key={index}>
+              <div>User: {user.userName}</div>
+              <div>Public Key: <i>{user.publicKey}</i></div>
+            </div>
+            )}
         </div>
-        : null
-      }
+        <div className='difficulty-form'>
+          <label htmlFor="inputBlockData">Add New Block</label>
+            <div>
+              <input name="difficulty"
+                     type="text"
+                     id="inputBlockDifficulty"
+                     value={this.state.difficulty}
+                     onChange={this.handleDifficultyChange}
+                     placeholder="Set Blockchain Difficulty">
+              </input>
+            </div>
+        </div>
+          {this.state.blockchain.length < 1 ? null : <BlockInput onAddBlock={this.handleAddBlock}/>}
+        {this.state.blockchain.length < 1 ?
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <button type="submit" className="btn">Create Genesis Block</button>
+            </form>
+          </div>
+          : null
+        }
         <div className={this.state.blockchain.length < 1 ? "" : 'blockchain'}>
           {this.state.blockchain.map((block, index) =>
             <div className='block' key={index}>

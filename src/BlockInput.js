@@ -38,7 +38,7 @@ export class BlockInput extends React.Component {
   render() {
     return (
     <div>
-      <form onSubmit = {this.handleSubmit} className="add-block-form">
+      <form onSubmit = {this.handleSubmit} className="add-block-form" autoComplete="off">
         <div>
           <div>
             <input name="data"
