@@ -39,10 +39,11 @@ export class BlockChain extends React.Component {
       blockchain: [...this.state.blockchain, newBlock]});
   }
 
-  handleAddUser(user) {
-    let passPhrase = user.passPhrase;
+  handleAddUser(userInput) {
+    let passPhrase = userInput.passPhrase;
+    let userName = userInput.userName;
     let bits = 1024;
-    let userRsaKey = cryptico.generateRSAKey(passPhrase, bits);
+    let userRsaKey = cryptico.generateRSAKey(userName + passPhrase, bits);
     let index = this.state.users.length + 1;
     let newUser = new User(index, userRsaKey);
     this.setState({
@@ -101,13 +102,12 @@ export class BlockChain extends React.Component {
   render() {
     return (
       <div className='text-center'>
-      <UserInput onAddUser={this.handleAddUser}/>
+        <UserInput onAddUser={this.handleAddUser}/>
       <div>
         {this.state.users.map((user, index) =>
           <div className='user' key={index}>
             <div><p>User #{user.index}</p></div>
             <div><p>Public Key: <i>{user.publicKey}</i></p></div>
-
           </div>
           )}
       </div>
@@ -115,11 +115,11 @@ export class BlockChain extends React.Component {
         <label htmlFor="inputBlockData">Add New Block</label>
           <div>
             <input name="difficulty"
-               type="text"
-               id="inputBlockDifficulty"
-               value={this.state.difficulty}
-               onChange={this.handleDifficultyChange}
-               placeholder="Set Blockchain Difficulty">
+                   type="text"
+                   id="inputBlockDifficulty"
+                   value={this.state.difficulty}
+                   onChange={this.handleDifficultyChange}
+                   placeholder="Set Blockchain Difficulty">
             </input>
           </div>
       </div>

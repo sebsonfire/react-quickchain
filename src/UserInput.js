@@ -5,6 +5,7 @@ export class UserInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: "",
       passPhrase: ""
     }
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -13,9 +14,10 @@ export class UserInput extends React.Component {
 
   handleInputChange(e) {
     let target = e.target;
+    let name = target.name;
     let value = target.value;
     this.setState({
-      passPhrase: value
+      [name] : value
     })
   }
 
@@ -23,6 +25,7 @@ export class UserInput extends React.Component {
     e.preventDefault();
     this.props.onAddUser(this.state);
     this.setState({
+      userName: "",
       passPhrase: ""
     })
   }
@@ -32,10 +35,19 @@ export class UserInput extends React.Component {
        <div>
       <form onSubmit = {this.handleSubmit} className="add-user-form">
         <div>
-          <label htmlFor="inputUserPassPhrase">Create Account</label>
+          <label htmlFor="inputUserData">Create Account</label>
+          <div>
+            <input name= "userName"
+                   type="text"
+                   id="inputUserName"
+                   value={this.state.userName}
+                   onChange={this.handleInputChange}
+                   placeholder="Enter Username">
+            </input>
+          </div>
           <div>
             <input name="passPhrase"
-                   type="text"
+                   type="password"
                    id="inputUserPassPhrase"
                    value={this.state.passPhrase}
                    onChange={this.handleInputChange}
