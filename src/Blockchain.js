@@ -28,8 +28,9 @@ export class BlockChain extends React.Component {
   handleAddBlock(block) {
     let index = this.state.blockchain.length + 1;
     let timeStamp = new Date().toString();
+    let difficulty = block.difficulty === null ? 0 : block.difficulty;
     let previousHash = this.state.blockchain.length < 1 ? 0 : this.state.blockchain[this.state.blockchain.length-1].hash;
-    let newBlock = new Block(index, timeStamp, block.difficulty, block.data, previousHash);
+    let newBlock = new Block(index, timeStamp, difficulty, block.data, previousHash);
     newBlock.mineBlock(block.difficulty);
     console.log(newBlock.hash);
     this.setState({
