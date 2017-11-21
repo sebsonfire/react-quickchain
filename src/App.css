@@ -27,9 +27,18 @@ input::placeholder {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
+  height: 50px;
+  transition: all 1s ease;
 }
 
-.main {
+.scrolled-navbar {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("http://www.hyperledger.org/wp-content/uploads/2016/08/hl_bg_banner.jpg") no-repeat center / cover fixed;
+  border-bottom: solid white;
+  border-width: 0.5px;
+}
+
+#main {
   margin-top: 100px;
 }
 
@@ -44,12 +53,20 @@ input::placeholder {
 
 .github-link {
   text-align: right;
-  margin-top: 25px;
+  margin-top: 13px;
   padding-right:25px;
 }
 
+.github-link a {
+  transition: color 250ms ease;
+}
+
 .logo {
-  padding-left: 25px;
+  padding: 0px 0px 0px 25px;
+}
+
+.logo h2{
+  margin-top: 8px;
 }
 
 .user {

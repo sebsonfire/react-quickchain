@@ -10,7 +10,7 @@ export class BlockInput extends React.Component {
       previousHash: 0,
       hash: "",
       nonce: "",
-      difficulty: ""
+      difficulty: null
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
