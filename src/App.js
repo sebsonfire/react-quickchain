@@ -9,7 +9,7 @@ class App extends Component {
       <div className='wrapper'>
         <div className='container'>
           <Navbar />
-          <div className='row'>
+          <div className='row main'>
             <div className='col-md-12'>
               <Blockchain />
             </div>

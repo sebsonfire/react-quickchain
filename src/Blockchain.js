@@ -48,17 +48,6 @@ export class BlockChain extends React.Component {
       users: [...this.state.users, newUser]});
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   let timeStamp = new Date().toString();
-  //   let difficulty = this.state.difficulty;
-  //   let genesisBlock = new Block(1, timeStamp, difficulty, "Genesis block", "0","0");
-  //   genesisBlock.mineBlock(this.state.difficulty);
-  //   this.setState({
-  //     blockchain: [...this.state.blockchain, genesisBlock]
-  //   });
-  // }
-
   handleClickValidate(e) {
     e.preventDefault();
     this.isChainValid();
@@ -85,8 +74,6 @@ export class BlockChain extends React.Component {
       valid: true
     })
   }
-
-
 
   render() {
     return (
