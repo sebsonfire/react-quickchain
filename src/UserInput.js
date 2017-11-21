@@ -30,10 +30,6 @@ export class UserInput extends React.Component {
     })
   }
 
-  isEnabled() {
-    this.userName.length > 0 && this.passPhrase.length > 0;
-  }
-
   render() {
     const { userName, passPhrase } = this.state;
     const isEnabled =

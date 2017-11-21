@@ -17,23 +17,20 @@ export class BlockChain extends React.Component {
     this.state = {
       blockchain: blockchain,
       users: users,
-      valid: "",
-      difficulty: null
+      valid: ""
     }
 
     this.handleAddBlock = this.handleAddBlock.bind(this);
     this.handleAddUser = this.handleAddUser.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClickValidate = this.handleClickValidate.bind(this);
-    this.handleDifficultyChange = this.handleDifficultyChange.bind(this)
   }
 
   handleAddBlock(block) {
     let index = this.state.blockchain.length + 1;
     let timeStamp = new Date().toString();
-    let previousHash = this.state.blockchain[this.state.blockchain.length-1].hash;
-    let newBlock = new Block(index, timeStamp, block.data, previousHash);
-    newBlock.mineBlock(this.state.difficulty);
+    let previousHash = this.state.blockchain.length < 1 ? 0 : this.state.blockchain[this.state.blockchain.length-1].hash;
+    let newBlock = new Block(index, timeStamp, block.difficulty, block.data, previousHash);
+    newBlock.mineBlock(block.difficulty);
     console.log(newBlock.hash);
     this.setState({
       blockchain: [...this.state.blockchain, newBlock]});
@@ -50,29 +47,20 @@ export class BlockChain extends React.Component {
       users: [...this.state.users, newUser]});
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    let timeStamp = new Date().toString();
-    let genesisBlock = new Block(1, timeStamp, "Genesis block", "0","0");
-    genesisBlock.mineBlock(this.state.difficulty);
-    this.setState({
-      blockchain: [...this.state.blockchain, genesisBlock]
-    });
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   let timeStamp = new Date().toString();
+  //   let difficulty = this.state.difficulty;
+  //   let genesisBlock = new Block(1, timeStamp, difficulty, "Genesis block", "0","0");
+  //   genesisBlock.mineBlock(this.state.difficulty);
+  //   this.setState({
+  //     blockchain: [...this.state.blockchain, genesisBlock]
+  //   });
+  // }
 
   handleClickValidate(e) {
     e.preventDefault();
     this.isChainValid();
-  }
-
-  handleDifficultyChange(e) {
-    e.preventDefault();
-    let target = e.target;
-    let value = parseInt(target.value, 10);
-    value = isNaN(value) ? null : value;
-    this.setState({
-      difficulty: value
-    })
   }
 
   isChainValid() {
@@ -111,32 +99,13 @@ export class BlockChain extends React.Component {
             </div>
             )}
         </div>
-        <div className='difficulty-form'>
-          <label htmlFor="inputBlockData">Add New Block</label>
-            <div>
-              <input name="difficulty"
-                     type="text"
-                     id="inputBlockDifficulty"
-                     value={this.state.difficulty}
-                     onChange={this.handleDifficultyChange}
-                     placeholder="Set Blockchain Difficulty">
-              </input>
-            </div>
-        </div>
-          {this.state.blockchain.length < 1 ? null : <BlockInput onAddBlock={this.handleAddBlock}/>}
-        {this.state.blockchain.length < 1 ?
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <button type="submit" className="btn">Create Genesis Block</button>
-            </form>
-          </div>
-          : null
-        }
+          <BlockInput onAddBlock={this.handleAddBlock} blockchainLength={this.state.blockchain.length}/>
         <div className={this.state.blockchain.length < 1 ? "" : 'blockchain'}>
           {this.state.blockchain.map((block, index) =>
             <div className='block' key={index}>
               <div><p><strong>Block #{block.index}</strong></p></div>
               <div><p>Timestamp: {block.timeStamp}</p></div>
+              <div><p>Difficulty: {block.difficulty}</p></div>
               <div><p>Data: {block.data}</p></div>
               <div><p>Previous Hash: <i>{block.previousHash}</i></p></div>
               <div><p>Hash: <i>{block.hash}</i></p></div>

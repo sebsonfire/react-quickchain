@@ -18,7 +18,7 @@ input {
 }
 
 input::placeholder {
-  color: white;
+  color: #aaa;
   font-weight: 200;
 }
 
