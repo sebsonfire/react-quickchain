@@ -1,0 +1,18 @@
+{
+  "name": "quickchain2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cryptico": "^1.0.2",
+    "crypto-js": "^3.1.9-1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

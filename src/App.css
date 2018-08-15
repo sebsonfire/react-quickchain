@@ -1,0 +1,177 @@
+a { color: inherit; }
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("http://www.hyperledger.org/wp-content/uploads/2016/08/hl_bg_banner.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+input {
+  text-align: center;
+  width: 160px;
+  background: none;
+}
+
+input::placeholder {
+  color: #aaa;
+  font-weight: 200;
+}
+
+.navbar {
+  margin: 0px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 50px;
+  transition: all 500ms ease;
+}
+
+.scrolled-navbar {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("http://www.hyperledger.org/wp-content/uploads/2016/08/hl_bg_banner.jpg") no-repeat center / cover fixed;
+  border-bottom: solid white;
+  border-width: 0.5px;
+}
+
+#main {
+  margin-top: 100px;
+  margin-bottom:40px;
+}
+
+.App {
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.github-link {
+  text-align: right;
+  margin-top: 13px;
+  padding-right:25px;
+}
+
+.github-link a {
+  transition: color 250ms ease;
+}
+
+.logo {
+  padding: 0px 0px 0px 25px;
+}
+
+.logo h2{
+  margin-top: 8px;
+}
+
+.user {
+  margin: 10px;
+  border: 1px dotted;
+  border-color: #0080a7;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.user div{
+  margin: 0px;
+  padding: 10px;
+  display: flex-box;
+  word-wrap: break-word;
+}
+
+.user-chain {
+  border: 1px dotted;
+  margin: auto;
+  margin-bottom:10px;
+  max-width: 500px;
+}
+
+.block{
+  border: 1px dotted;
+  border-color: #0080a7;
+  padding: 10px;
+  margin: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+.block div{
+  margin: 0px;
+  padding: 0px;
+  display: flex-box;
+  word-wrap: break-word;
+}
+
+.blockchain {
+    border: 1px dotted;
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn {
+  background: none;
+  border: 2px solid #0080a7;
+  color: white;
+  margin: 5px;
+}
+.btn:focus {
+  outline: none;
+  outline-style: none;
+}
+
+.btn:hover {
+  color:white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+}
+
+.btn:active {
+  color:white;
+}
+
+.difficulty-form {
+  margin-bottom: 5px;
+}
+
+.user-submission-form div{
+  margin: 5px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  border-top: solid white;
+  border-width: 0.5px;
+  background: #00020f;
+  height: 35px;
+  margin:0px;
+}
+
+.instagram {
+  text-align: right;
+  margin-top: 2px;
+}
+.instagram a {
+  transition: color 250ms ease;
+  margin-right: 10px;
+}
+
+
+.copyright {
+  margin-top: 9px;
+  color: #00315a;
+  font-size: 10px;
+}
+
+.valid {
+  border: 1px solid #26C281;
+}
+
+.invalid {
+  border: 1px solid red;
+}
